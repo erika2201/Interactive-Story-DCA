@@ -13,5 +13,16 @@ public class Logic {
 	
 	public Logic(PApplet app) {
 		this.app = app;
+		
+		tadpole = new Tadpole (0, 0, app);	
+		pants = new Pants (0, 0, app);
+		tie = new Tie (0, 0, app);
+		hat = new Hat (0, 0, app);
+		vest = new Vest (0, 0, app);
 	}
+	
+	public void selectElement () {
+		//if (dist)
+	}
+	
 }

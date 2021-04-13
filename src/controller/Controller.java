@@ -9,7 +9,7 @@ public class Controller {
 	
 	public Controller(PApplet app) {
 		this.app = app;
-		//logic = new Logic(app);
+		logic = new Logic(app);
 	}
 	
 }

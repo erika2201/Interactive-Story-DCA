@@ -24,6 +24,7 @@ public class Main extends PApplet {
 		screenInteraction = new ScreenInteraction(0, 0, this);
 		screenFinal = new ScreenFinal (0, 0, this);
 		
+		screen = 1;
 	}
 	
 	
@@ -44,5 +45,27 @@ public class Main extends PApplet {
 		default:
 			break;
 		}
+		
+		println(mouseX, mouseY);
+	}
+	
+
+	public void mousePressed() {
+		startStory();
+	}
+	
+	
+	public void mouseDragged() {
+
+	}
+	
+	public void startStory() {
+		if(screen == 1)  {
+			if (mouseX>855 && mouseX<1030 &&
+				  mouseY>600 && mouseY<650) {
+				screen = 2;
+			}
+		}
+			
 	}
 }

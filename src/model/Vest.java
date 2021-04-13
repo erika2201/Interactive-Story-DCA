@@ -8,7 +8,6 @@ public class Vest extends Element {
 		super(posX, posY, app);
 	}
 
-	@Override
 	public void draw(PApplet app) {
 		app.imageMode(app.CENTER);
 		app.image(vest, posX, posY);
