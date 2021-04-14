@@ -17,7 +17,7 @@ public abstract class Element {
 		tadpole = app.loadImage("Tadpole.png");
 		pants = app.loadImage("Pants.png");
 		tie = app.loadImage("Tie.png");
-		tie = app.loadImage("Tie.png");
+		hat = app.loadImage("Hat.png");
 		vest = app.loadImage("Vest.png");
 	}
 	
@@ -29,5 +29,13 @@ public abstract class Element {
 
 	public int getPosY() {
 		return posY;
+	}
+	
+	public void setPosX(int posX) {
+		this.posX = posX;
+	}
+	
+	public void setPosY(int posY) {
+		this.posY = posY;
 	}
 }

@@ -1,5 +1,6 @@
 package view;
 
+import controller.Controller;
 import processing.core.PApplet;
 
 public class Main extends PApplet {
@@ -14,6 +15,8 @@ public class Main extends PApplet {
 	public ScreenFinal screenFinal;
 	int screen;
 	
+	Controller controller;
+	
 	public void settings() {
 		size(1200,700);
 	}
@@ -25,10 +28,26 @@ public class Main extends PApplet {
 		screenFinal = new ScreenFinal (0, 0, this);
 		
 		screen = 1;
+		
+		controller = new Controller(this);
+	}
+	
+	public void draw() {
+		drawScreens();
+		drawElements();
+	}
+
+	public void mousePressed() {
+		startStory();
+		controller.selectElement();
 	}
 	
 	
-	public void draw() {
+	public void mouseDragged() {
+		controller.dragElement();
+	}
+	
+	public void drawScreens() {
 		switch (screen) {
 		case 1:
 			screenHome.drawHomeScreen();
@@ -49,16 +68,6 @@ public class Main extends PApplet {
 		println(mouseX, mouseY);
 	}
 	
-
-	public void mousePressed() {
-		startStory();
-	}
-	
-	
-	public void mouseDragged() {
-
-	}
-	
 	public void startStory() {
 		if(screen == 1)  {
 			if (mouseX>855 && mouseX<1030 &&
@@ -66,6 +75,11 @@ public class Main extends PApplet {
 				screen = 2;
 			}
 		}
-			
+	}
+	
+	public void drawElements() {
+		if(screen == 2)  {
+			controller.drawElements();
+		}
 	}
 }

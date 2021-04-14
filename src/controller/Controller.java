@@ -12,4 +12,19 @@ public class Controller {
 		logic = new Logic(app);
 	}
 	
+	public void drawElements() {
+		logic.drawElements();
+	}
+	
+	public void selectElement() {
+		logic.selectElement();
+	}
+	
+	public void dragElement() {
+		logic.dragElement();
+	}
+	
+	public void releasedElement() {
+		logic.releasedElement();
+	}
 }
