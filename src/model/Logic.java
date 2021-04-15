@@ -26,6 +26,8 @@ public class Logic {
 	String[] loadText;
 	ArrayList<String> storyWords;
 	
+	ArrayList<Element> selectWords;
+	
 	public Logic(PApplet app) {
 		this.app = app;
 		
@@ -42,18 +44,40 @@ public class Logic {
 		loadText = app.loadStrings("../data/Story.txt");
 		storyWords=new ArrayList<String>();
 		
-	
+		for (int index = 0; index < loadText.length; index++) {
+			String[] tempArray = loadText[index].split(" ");
+
+			for (int j = 0; j < tempArray.length; j++) {
+				storyWords.add(tempArray[j]);
+			}
 		}
+	}
 	
 	public void drawElements() {
 		app.imageMode(app.CENTER);
-		tadpole.draw(app);
-		pants.draw(app);
-		hat.draw(app);
-		vest.draw(app);
-		tie.draw(app);
-		app.imageMode(app.CORNER);
-		
+		for (String element : storyWords) {
+			
+		if(element.equals("Rinrin")) {
+			tadpole.draw(app);
+			System.out.println("Rinrin");
+		}
+		if(element.equals("pantalon")) {
+			pants.draw(app);
+				System.out.println("pantalón");
+			}
+		if(element.equals("Sombrero")) {
+			hat.draw(app);
+			System.out.println("sombrero");
+		}
+		if(element.equals("chupa")) {
+			vest.draw(app);
+			System.out.println("chupa");
+		}
+		if(element.equals("corbata")) {
+			tie.draw(app);
+			System.out.println("corbata");
+		}
+		}
 		//app.println(interactionsCounter);
 	}
 	
