@@ -27,4 +27,13 @@ public class Controller {
 	public void releasedElement() {
 		logic.releasedElement();
 	}
+	
+	public void buttonToFinish() {
+		logic.buttonToFinish();
+	}
+	
+	public int interactionsCounter () {
+		return logic.getInteractionsCounter();
+	}
+	
 }

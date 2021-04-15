@@ -40,6 +40,7 @@ public class Main extends PApplet {
 	public void mousePressed() {
 		startStory();
 		controller.selectElement();
+		finishStory();
 	}
 	
 	
@@ -80,6 +81,18 @@ public class Main extends PApplet {
 	public void drawElements() {
 		if(screen == 2)  {
 			controller.drawElements();
+			controller.buttonToFinish();
 		}
 	}
+	
+	public void finishStory() {
+		if(controller.interactionsCounter() == 5) {
+			if(screen == 2)  {
+				if(mouseX>1000 && mouseX<1100 &&
+					mouseY>600 && mouseY<650) {
+					screen =3;
+					}
+				}
+			}
+		}
 }

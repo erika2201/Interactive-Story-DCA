@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 
 import processing.core.PApplet;
+import processing.core.PImage;
 
 public class Logic {
 
@@ -20,6 +21,7 @@ public class Logic {
 	boolean selVest;
 	
 	int interactionsCounter;
+	PImage button;
 	
 	String[] loadText;
 	ArrayList<String> words;
@@ -34,6 +36,7 @@ public class Logic {
 		vest = new Vest (1135, 450, app);
 		
 		interactionsCounter = 0;
+		button = app.loadImage("Button.png");
 		
 		words = new ArrayList<String>();
 		loadText = app.loadStrings("../data/Story.txt");
@@ -47,6 +50,8 @@ public class Logic {
 		vest.draw(app);
 		tie.draw(app);
 		app.imageMode(app.CORNER);
+		
+		//app.println(interactionsCounter);
 	}
 	
 	public void selectElement () {
@@ -84,28 +89,56 @@ public class Logic {
 			if(app.mouseX >= 750){
 			tadpole.setPosX(750);
 			selTadpole = false;
-			interactionsCounter +=1; 
+			interactionsCounter =0; 
 			}
 		}
 		
 		if (selPants == true){
 			pants.posX = app.mouseX;
 			pants.posY = app.mouseY;
+			
+			if(app.mouseX <= 750 && app.mouseY>=385){
+				pants.setPosX(750);
+				pants.setPosY(385);
+				selPants = false;
+				interactionsCounter =2; 
+				}
 		}
 		
 		if (selTie == true){
 			tie.posX = app.mouseX;
 			tie.posY = app.mouseY;
+			
+			if(app.mouseX <= 750 && app.mouseY<=310){
+				tie.setPosX(750);
+				tie.setPosY(318);
+				selTie = false;
+				interactionsCounter =3; 
+				}
 		}
 		
 		if (selHat == true){
 			hat.posX = app.mouseX;
 			hat.posY = app.mouseY;
+			
+			if(app.mouseX <= 750 && app.mouseY<=220){
+				hat.setPosX(750);
+				hat.setPosY(225);
+				selHat = false;
+				interactionsCounter =4; 
+				}
 		}
 		
 		if (selVest == true){
 			vest.posX = app.mouseX;
 			vest.posY = app.mouseY;
+			
+			if(app.mouseX <= 750 && app.mouseY<=310){
+				vest.setPosX(750);
+				vest.setPosY(320);
+				selVest = false;
+				interactionsCounter =5; 
+				}
 		}
 	}
 	
@@ -128,5 +161,15 @@ public class Logic {
 		if(interactionsCounter>=5) {
 			selVest = false;
 		}
+	}
+	
+	public void buttonToFinish() {
+		if (interactionsCounter==5) {
+			app.image(button,1000,600);
+		}
+	}
+	
+	public int getInteractionsCounter() {
+		return interactionsCounter;
 	}
 }
