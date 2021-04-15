@@ -42,8 +42,7 @@ public class Main extends PApplet {
 		controller.selectElement();
 		finishStory();
 	}
-	
-	
+
 	public void mouseDragged() {
 		controller.dragElement();
 	}
@@ -66,7 +65,7 @@ public class Main extends PApplet {
 			break;
 		}
 		
-		println(mouseX, mouseY);
+		//println(mouseX, mouseY);
 	}
 	
 	public void startStory() {

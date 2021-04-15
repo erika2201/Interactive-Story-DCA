@@ -24,7 +24,7 @@ public class Logic {
 	PImage button;
 	
 	String[] loadText;
-	ArrayList<String> words;
+	ArrayList<String> storyWords;
 	
 	public Logic(PApplet app) {
 		this.app = app;
@@ -38,9 +38,12 @@ public class Logic {
 		interactionsCounter = 0;
 		button = app.loadImage("Button.png");
 		
-		words = new ArrayList<String>();
+		
 		loadText = app.loadStrings("../data/Story.txt");
-	}
+		storyWords=new ArrayList<String>();
+		
+	
+		}
 	
 	public void drawElements() {
 		app.imageMode(app.CENTER);
