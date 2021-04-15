@@ -16,9 +16,9 @@ public abstract class Element {
 		
 		tadpole = app.loadImage("Tadpole.png");
 		pants = app.loadImage("Pants.png");
-		tie = app.loadImage("Tie.png");
 		hat = app.loadImage("Hat.png");
 		vest = app.loadImage("Vest.png");
+		tie = app.loadImage("Tie.png");
 	}
 	
 	public abstract void draw (PApplet app);

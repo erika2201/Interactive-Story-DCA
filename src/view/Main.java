@@ -90,6 +90,8 @@ public class Main extends PApplet {
 				if(mouseX>1000 && mouseX<1100 &&
 					mouseY>600 && mouseY<650) {
 					screen =3;
+					
+					controller.newText();
 					}
 				}
 			}

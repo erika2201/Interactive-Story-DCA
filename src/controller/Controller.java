@@ -36,4 +36,7 @@ public class Controller {
 		return logic.getInteractionsCounter();
 	}
 	
+	public void newText () {
+		logic.newTXT();
+	}
 }

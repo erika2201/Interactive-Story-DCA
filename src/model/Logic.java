@@ -1,5 +1,6 @@
 package model;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import processing.core.PApplet;
@@ -27,6 +28,8 @@ public class Logic {
 	ArrayList<String> storyWords;
 	
 	ArrayList<Element> selectWords;
+	
+	PrintWriter loadNewText;
 	
 	public Logic(PApplet app) {
 		this.app = app;
@@ -59,26 +62,27 @@ public class Logic {
 			
 		if(element.equals("Rinrin")) {
 			tadpole.draw(app);
-			System.out.println("Rinrin");
+			//System.out.println("Rinrin");
 		}
 		if(element.equals("pantalon")) {
 			pants.draw(app);
-				System.out.println("pantalón");
+			//System.out.println("pantalón");
 			}
 		if(element.equals("Sombrero")) {
 			hat.draw(app);
-			System.out.println("sombrero");
+			//System.out.println("sombrero");
 		}
 		if(element.equals("chupa")) {
 			vest.draw(app);
-			System.out.println("chupa");
+			//System.out.println("chupa");
 		}
 		if(element.equals("corbata")) {
 			tie.draw(app);
-			System.out.println("corbata");
+			//System.out.println("corbata");
 		}
 		}
 		//app.println(interactionsCounter);
+		//tie is behind vest because it is the order as mentioned in the story :c
 	}
 	
 	public void selectElement () {
@@ -106,7 +110,7 @@ public class Logic {
 			app.mouseY>431 && app.mouseY<473) {
 			selVest = true;
 		}
-		
+	
 	}
 	
 	public void dragElement () {
@@ -188,6 +192,27 @@ public class Logic {
 		if(interactionsCounter>=5) {
 			selVest = false;
 		}
+	}
+	
+	public void newTXT() {
+		loadNewText = app.createWriter("./TXT/newStory.txt");
+
+		for (int i = 0; i < storyWords.size(); i++) {
+			if (storyWords.get(i).equals("Rinrin") 
+				|| storyWords.get(i).equals("pantalon,")
+				|| storyWords.get(i).equals("corbata")
+				|| storyWords.get(i).equals("Sombrero")
+				|| storyWords.get(i).equals("chupa")) {
+				
+				loadNewText.println(storyWords.get(i).toUpperCase());
+			} else {
+				loadNewText.println(storyWords.get(i));
+			}
+		}
+		loadNewText.flush();
+		loadNewText.close();
+		
+		System.out.println("New TXT is ready");
 	}
 	
 	public void buttonToFinish() {
