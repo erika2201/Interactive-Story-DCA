@@ -92,6 +92,7 @@ public class Main extends PApplet {
 					screen =3;
 					
 					controller.newText();
+					
 					}
 				}
 			}
